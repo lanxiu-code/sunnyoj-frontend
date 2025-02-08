@@ -1,13 +1,13 @@
 .card {
-    -webkit-box-shadow: 0px 15px 21px -7px rgb(227, 227, 231);
-    -moz-box-shadow: 0px 15px 21px -7px rgb(227, 227, 231);
-    box-shadow: 0px 15px 21px -7px rgb(227, 227, 231);
-    margin: 20px;
+    -webkit-box-shadow: 0rem .9375rem 1.3125rem -0.4375rem rgb(227, 227, 231);
+    -moz-box-shadow: 0rem .9375rem 1.3125rem -0.4375rem rgb(227, 227, 231);
+    box-shadow: 0rem .9375rem 1.3125rem -0.4375rem rgb(227, 227, 231);
+    margin: 1.25rem;
     overflow: auto;
     .iconFont {
-      font-size: 25px;
+      font-size: 1.5625rem;
       vertical-align: middle;
-      margin-right: 10px;
+      margin-right: .625rem;
     }
     &::-webkit-scrollbar{
       display: none;

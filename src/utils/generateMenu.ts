@@ -9,12 +9,8 @@ function generateMenu(routes: any[], userRole: string) {
       route.children.forEach((subRoute: any) => {
         if (!subRoute.hideInMenu && subRoute.meta) {
           if (subRoute.meta.roles.some((role: string) => userRole == role)) {
-            let path = subRoute.path as string;
-            if (!path.includes("/")) {
-              path = `/${path}`;
-            }
             acc.push({
-              key: path,
+              key: subRoute.name as string,
               label: subRoute?.meta?.title,
               title: subRoute?.meta?.title,
               //   icon: () => h(route?.meta?.icon),
@@ -25,12 +21,8 @@ function generateMenu(routes: any[], userRole: string) {
     } else {
       if (!route.hideInMenu && route.meta) {
         if (route.meta.roles.some((role: string) => userRole == role)) {
-          let path = route.path as string;
-          if (!path.includes("/")) {
-            path = `/${path}`;
-          }
           acc.push({
-            key: route.path,
+            key: route.name,
             label: route?.meta?.title,
             title: route?.meta?.title,
             icon: route?.meta?.icon,

@@ -64,39 +64,3 @@ console.log(markdownContent.value);
 ## 阶段三
 
 进行系统的测试与优化，特别是用户体验和语音识别的精度。
-
-# 项目展示
-
-部分页面
-
-## 登录页
-
-![](https://cdn.nlark.com/yuque/0/2024/png/35349136/1730689181205-e753c261-ad2d-4641-8020-10541fda8298.png)
-
-## 首页
-
-![](https://cdn.nlark.com/yuque/0/2024/png/35349136/1730689203422-9b90971e-e65b-47a7-8dff-e7de2860f714.png)
-
-## 发布页
-
-![](https://cdn.nlark.com/yuque/0/2024/png/35349136/1730689523893-1a055763-edc5-495f-b584-cbd8999f9f22.png)
-
-## 讨论区
-
-![](https://cdn.nlark.com/yuque/0/2024/png/35349136/1730689538297-b1db69be-beb4-4cdc-b91c-f76e1b757191.png)
-
-## 消息
-
-![](https://cdn.nlark.com/yuque/0/2024/png/35349136/1730689553416-9293cc4a-92df-4cee-949f-c09f8dee5869.png)
-
-## 个人主页
-
-![](https://cdn.nlark.com/yuque/0/2024/png/35349136/1730689571193-d51c5804-72d7-4a3f-aba3-a1cd0bf30b8b.png)
-
-## 详情页
-
-![](https://cdn.nlark.com/yuque/0/2024/png/35349136/1730689593528-f16c254f-f363-47ba-8031-ec0e570f01dd.png)
-
-## 管理页
-
-![](https://cdn.nlark.com/yuque/0/2024/png/35349136/1730689608888-0f130c91-e1a6-464c-b226-460b38cad350.png)

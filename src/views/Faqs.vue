@@ -2,12 +2,8 @@
   <div class="faqsPage">
     <a-row justify="center">
       <a-col :md="12">
-        <a-card>
-          <div v-html="markdownContent"></div>
-          <img
-            rel="no-referrer"
-            src="https://cdn.nlark.com/yuque/0/2024/png/35349136/1730689181205-e753c261-ad2d-4641-8020-10541fda8298.png"
-          />
+        <a-card class="card">
+          <MdPreview previewTheme="mk-cute" :modelValue="markdownContent" />
         </a-card>
       </a-col>
     </a-row>
@@ -16,27 +12,33 @@
 
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
-import { Marked } from "marked";
-import hljs from "highlight.js";
-import "highlight.js/styles/atom-one-dark.css";
-import { markedHighlight } from "marked-highlight";
-const markdownContent = ref();
+import { MdPreview, MdCatalog, config, XSSPlugin } from "md-editor-v3";
+import "md-editor-v3/lib/preview.css";
+const markdownContent = ref("");
 onMounted(async () => {
+  config({
+    markdownItPlugins(plugins) {
+      return [
+        ...plugins,
+        {
+          type: "xss",
+          plugin: XSSPlugin,
+          options: {},
+        },
+      ];
+    },
+  });
   //@ts-ignore
   const rawMarkdown = await import("@/assets/md/faqs.md?raw");
-  const marked = new Marked(
-    markedHighlight({
-      emptyLangClass: "hljs",
-      langPrefix: "hljs language-",
-      highlight(code, lang, info) {
-        const language = hljs.getLanguage(lang) ? lang : "plaintext";
-        return hljs.highlight(code, { language }).value;
-      },
-    })
-  );
-
-  markdownContent.value = marked.parse(rawMarkdown.default);
+  markdownContent.value = rawMarkdown.default;
 });
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+// @import url("@/assets/style/card.scss");
+.card {
+  -webkit-box-shadow: 0rem 0.9375rem 1.3125rem -0.4375rem rgb(227, 227, 231);
+  -moz-box-shadow: 0rem 0.9375rem 1.3125rem -0.4375rem rgb(227, 227, 231);
+  box-shadow: 0rem 0.9375rem 1.3125rem -0.4375rem rgb(227, 227, 231);
+}
+</style>
