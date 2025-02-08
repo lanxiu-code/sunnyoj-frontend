@@ -6,12 +6,12 @@
           <a-input
             placeholder="题目编号"
             v-model:value="searchParams.id"
-            style="width: 180px"
+            style="width: 11.25rem"
           />
           <a-input
             placeholder="用户"
             v-model:value="searchParams.userName"
-            style="width: 180px"
+            style="width: 11.25rem"
           />
           <a-select
             ref="select"
@@ -226,9 +226,9 @@ const onFinish = () => {
 .statusPage {
   .col {
     background: white;
-    padding: 15px;
+    padding: 0.9375rem;
     box-sizing: border-box;
-    border-radius: 5px;
+    border-radius: 0.3125rem;
     .searchBtn {
       background: #a1c4fd;
     }

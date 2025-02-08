@@ -7,18 +7,39 @@ import { RoleEnum } from "../enum/RoleEnum";
 export const routes = [
   {
     path: "/",
-    redirect: "/home",
-    hiddenItem: true,
+    redirect: "/sunnyoj/home",
+    hideInMenu: true,
   },
   {
-    path: "/",
-    name: "基础布局",
-    meta: {},
+    path: "/sunnyoj",
+    name: "Sunnyoj",
     component: () => import("@/layouts/BasicLayout.vue"),
     children: [
       {
+        path: "login",
+        name: "Login",
+        hideInMenu: true,
+        component: () => import("@/views/Login.vue"),
+        meta: {
+          title: "登录",
+          roles: [RoleEnum.UN_LOGIN],
+          // icon: "SettingOutlined",
+        },
+      },
+      {
+        path: "register",
+        name: "Register",
+        hideInMenu: true,
+        component: () => import("@/views/Register.vue"),
+        meta: {
+          title: "注册",
+          roles: [RoleEnum.UN_LOGIN],
+          // icon: "SettingOutlined",
+        },
+      },
+      {
         path: "home",
-        name: "首页",
+        name: "Home",
         component: () => import("@/views/Home.vue"),
         meta: {
           title: "首页",
@@ -28,7 +49,7 @@ export const routes = [
       },
       {
         path: "questionBank",
-        name: "题库",
+        name: "QuestionBank",
         component: () => import("@/views/QuestionBank.vue"),
         meta: {
           title: "题库",
@@ -38,7 +59,7 @@ export const routes = [
       },
       {
         path: "contest",
-        name: "比赛",
+        name: "Contest",
         component: () => import("@/views/Contest.vue"),
         meta: {
           title: "比赛",
@@ -48,7 +69,7 @@ export const routes = [
       },
       {
         path: "status",
-        name: "状态",
+        name: "Status",
         component: () => import("@/views/Status.vue"),
         meta: {
           title: "状态",
@@ -58,7 +79,7 @@ export const routes = [
       },
       {
         path: "rank",
-        name: "排名",
+        name: "Rank",
         component: () => import("@/views/Rank.vue"),
         meta: {
           title: "排名",
@@ -68,7 +89,7 @@ export const routes = [
       },
       {
         path: "faqs",
-        name: "常见问题",
+        name: "Faqs",
         component: () => import("@/views/Faqs.vue"),
         meta: {
           title: "常见问题",

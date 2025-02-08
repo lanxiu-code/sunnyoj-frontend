@@ -36,7 +36,10 @@
                 >{{ item.type }}</a-select-option
               >
             </a-select>
-            <a-input v-model:value="searchParams.title" style="width: 180px" />
+            <a-input
+              v-model:value="searchParams.title"
+              style="width: 11.25rem"
+            />
           </a-input-group>
           <a-button type="primary" html-type="submit" class="searchBtn"
             >搜索</a-button
@@ -58,7 +61,7 @@
             <template v-else-if="column.key === 'status'">
               <CheckCircleTwoTone
                 v-show="record.status === 1"
-                style="font-size: 20px"
+                style="font-size: 1.25rem"
                 two-tone-color="#52c41a"
               />
             </template>
@@ -204,9 +207,9 @@ const onFinish = () => {
 .questionBankPage {
   .col {
     background: white;
-    padding: 15px;
+    padding: 0.9375rem;
     box-sizing: border-box;
-    border-radius: 5px;
+    border-radius: 0.3125rem;
     .searchBtn {
       background: #a1c4fd;
     }
