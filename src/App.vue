@@ -7,8 +7,6 @@
 </template>
 <script setup lang="ts">
 import zhCN from "ant-design-vue/es/locale/zh_CN";
-import enUS from "ant-design-vue/es/locale/en_US";
-
 const locale = zhCN;
 </script>
 <style scoped>
