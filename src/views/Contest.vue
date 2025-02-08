@@ -13,7 +13,11 @@
             v-model:value="searchParams.title"
             style="width: 11.25rem"
           />
-          <a-button type="primary" html-type="submit" class="searchBtn"
+          <a-button
+            type="primary"
+            html-type="submit"
+            class="searchBtn"
+            @click="onSearch"
             >搜索</a-button
           >
           <a-button>重置</a-button>
@@ -115,7 +119,7 @@ const columns = ref([
     align: "center",
   },
 ]);
-const onFinish = () => {
+const onSearch = () => {
   console.log("submit");
 };
 </script>

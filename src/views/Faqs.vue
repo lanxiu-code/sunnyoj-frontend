@@ -12,7 +12,7 @@
 
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
-import { MdPreview, MdCatalog, config, XSSPlugin } from "md-editor-v3";
+import { MdPreview, config, XSSPlugin } from "md-editor-v3";
 import "md-editor-v3/lib/preview.css";
 const markdownContent = ref("");
 onMounted(async () => {
