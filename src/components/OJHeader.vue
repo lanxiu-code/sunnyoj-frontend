@@ -26,13 +26,12 @@
 </template>
 
 <script setup lang="ts">
-import { h, onMounted, ref } from "vue";
+import { onMounted, ref } from "vue";
 import generateMenu from "../utils/generateMenu";
 import { RoleEnum } from "../enum/RoleEnum";
 import { routes } from "../router";
-import { MenuProps } from "ant-design-vue";
 import { useRoute, useRouter } from "vue-router";
-const navItems = ref<MenuProps["items"]>([]);
+const navItems = ref<any[]>([]);
 const currentNav = ref<string[]>(["/home"]);
 const router = useRouter();
 const route = useRoute();
