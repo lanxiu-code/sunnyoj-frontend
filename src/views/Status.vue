@@ -37,7 +37,11 @@
               >{{ item.label }}</a-select-option
             >
           </a-select>
-          <a-button type="primary" html-type="submit" class="searchBtn"
+          <a-button
+            type="primary"
+            html-type="submit"
+            class="searchBtn"
+            @click="onSearch"
             >搜索</a-button
           >
           <a-button>重置</a-button>
@@ -75,7 +79,6 @@
 
 <script setup lang="ts">
 import { reactive, ref } from "vue";
-import { CheckCircleTwoTone } from "@ant-design/icons-vue";
 const languageList = ref([
   {
     id: 1,
@@ -217,7 +220,7 @@ const columns = ref([
     align: "center",
   },
 ]);
-const onFinish = () => {
+const onSearch = () => {
   console.log("submit");
 };
 </script>

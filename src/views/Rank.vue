@@ -119,7 +119,7 @@ const columns = ref([
     fixed: "left",
   },
 ]);
-const onFinish = () => {
+const onSearch = () => {
   console.log("submit");
 };
 </script>

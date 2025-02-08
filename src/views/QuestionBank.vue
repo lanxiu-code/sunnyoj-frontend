@@ -41,7 +41,11 @@
               style="width: 11.25rem"
             />
           </a-input-group>
-          <a-button type="primary" html-type="submit" class="searchBtn"
+          <a-button
+            type="primary"
+            html-type="submit"
+            class="searchBtn"
+            @click="onSearch"
             >搜索</a-button
           >
           <a-button>重置</a-button>
@@ -198,7 +202,7 @@ const columns = ref([
     fixed: "left",
   },
 ]);
-const onFinish = () => {
+const onSearch = () => {
   console.log("submit");
 };
 </script>
