@@ -31,7 +31,7 @@ const loginType = ref(0);
 const codeText = ref("发送");
 const router = useRouter();
 const codeBtnDisabled = ref(false);
-let sid = null;
+let sid: NodeJS.Timeout = null;
 const loginInfo = reactive({
   userAccount: "",
   userPassword: "",
@@ -40,24 +40,6 @@ const loginInfo = reactive({
 });
 const jump = (name: string) => {
   router.push({ name });
-};
-const sendCode = () => {
-  console.log(sid);
-
-  if (sid) {
-    return;
-  }
-  codeBtnDisabled.value = true;
-  let time = 5;
-  sid = setInterval(() => {
-    codeText.value = `${time--}s`;
-    if (time <= 0) {
-      codeText.value = "发送";
-      codeBtnDisabled.value = false;
-      clearInterval(sid);
-      sid = null;
-    }
-  }, 1000);
 };
 </script>
 

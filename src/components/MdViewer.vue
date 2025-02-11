@@ -10,7 +10,7 @@
 <script setup lang="ts">
 import { config, MdPreview, XSSPlugin } from "md-editor-v3";
 import "md-editor-v3/lib/preview.css";
-import { onMounted, ref, withDefaults } from "vue";
+import { onMounted, withDefaults } from "vue";
 /**
  * 定义组件属性类型
  */
