@@ -38,13 +38,24 @@ export const routes = [
         },
       },
       {
+        path: "viewnews/:id",
+        name: "Viewnews",
+        hideInMenu: true,
+        component: () => import("@/views/Viewnews.vue"),
+        meta: {
+          title: "公告",
+          roles: [RoleEnum.UN_LOGIN],
+          // icon: "SettingOutlined",
+        },
+      },
+      {
         path: "home",
         name: "Home",
         component: () => import("@/views/Home.vue"),
         meta: {
           title: "首页",
           roles: [RoleEnum.UN_LOGIN],
-          // icon: "SettingOutlined",
+          icon: "icon-shouye",
         },
       },
       {
@@ -54,7 +65,7 @@ export const routes = [
         meta: {
           title: "题库",
           roles: [RoleEnum.UN_LOGIN],
-          // icon: "SettingOutlined",
+          icon: "icon-icon_xiaobentiku",
         },
       },
       {
@@ -64,7 +75,7 @@ export const routes = [
         meta: {
           title: "比赛",
           roles: [RoleEnum.UN_LOGIN],
-          // icon: "SettingOutlined",
+          icon: "icon-bisai",
         },
       },
       {
@@ -74,7 +85,7 @@ export const routes = [
         meta: {
           title: "状态",
           roles: [RoleEnum.UN_LOGIN],
-          // icon: "SettingOutlined",
+          icon: "icon-shishizhuangtai",
         },
       },
       {
@@ -84,7 +95,7 @@ export const routes = [
         meta: {
           title: "排名",
           roles: [RoleEnum.UN_LOGIN],
-          // icon: "SettingOutlined",
+          icon: "icon-paiming",
         },
       },
       {
@@ -94,10 +105,21 @@ export const routes = [
         meta: {
           title: "常见问题",
           roles: [RoleEnum.UN_LOGIN],
-          // icon: "SettingOutlined",
+          icon: "icon-changjianwenti",
         },
       },
     ],
+  },
+  {
+    path: "/problems/:id",
+    name: "Problems",
+    hideInMenu: true,
+    component: () => import("@/views/Problems.vue"),
+    meta: {
+      title: "题目",
+      roles: [RoleEnum.UN_LOGIN],
+      // icon: "SettingOutlined",
+    },
   },
 ] as RouteRecordRaw[];
 const router = createRouter({

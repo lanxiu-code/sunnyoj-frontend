@@ -11,8 +11,11 @@
   "dependencies": {
     "ant-design-vue": "^4.2.6",
     "md-editor-v3": "^5.2.2",
+    "monaco-editor": "^0.52.2",
+    "monaco-editor-webpack-plugin": "^7.1.0",
     "pinia": "^2.3.1",
     "sass": "^1.83.4",
+    "vite-plugin-monaco-editor": "^1.1.0",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"
   },

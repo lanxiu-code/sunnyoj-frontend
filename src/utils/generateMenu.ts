@@ -1,5 +1,9 @@
-// import { h } from "vue";
-
+import { h } from "vue";
+import { ICONFONT_URL } from "../constants/common";
+import { createFromIconfontCN } from "@ant-design/icons-vue";
+const IconFont = createFromIconfontCN({
+  scriptUrl: ICONFONT_URL,
+});
 /**
  * @name 导航菜单生成
  */
@@ -13,7 +17,13 @@ function generateMenu(routes: any[], userRole: string) {
               key: subRoute.name as string,
               label: subRoute?.meta?.title,
               title: subRoute?.meta?.title,
-              //   icon: () => h(route?.meta?.icon),
+              icon: () =>
+                h(IconFont, {
+                  style: {
+                    fontSize: "1rem",
+                  },
+                  type: subRoute?.meta?.icon,
+                }),
             });
           }
         }
@@ -25,7 +35,13 @@ function generateMenu(routes: any[], userRole: string) {
             key: route.name,
             label: route?.meta?.title,
             title: route?.meta?.title,
-            icon: route?.meta?.icon,
+            icon: () =>
+              h(IconFont, {
+                style: {
+                  fontSize: "1rem",
+                },
+                type: route?.meta?.icon,
+              }),
           });
         }
       }

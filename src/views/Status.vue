@@ -70,6 +70,9 @@
                 >{{ tag }}</a-tag
               >
             </template>
+            <template v-else-if="column.dataIndex === 'operation'">
+              <a-button>查看</a-button>
+            </template>
           </template>
         </a-table>
       </a-col>
@@ -134,7 +137,6 @@ const dataSource = ref([
   {
     id: "1",
     userName: "张三",
-    signature: "我是网站老大",
     questionId: "2",
     status: "正确",
     memory: "1999KiB",
@@ -146,7 +148,6 @@ const dataSource = ref([
   {
     id: "2",
     userName: "李四",
-    signature: "我是网站老二",
     questionId: "3",
     status: "错误",
     memory: "1999KiB",
@@ -169,12 +170,6 @@ const columns = ref([
     title: "用户",
     dataIndex: "userName",
     key: "userName",
-    align: "center",
-  },
-  {
-    title: "个性签名",
-    dataIndex: "signature",
-    key: "signature",
     align: "center",
   },
   {
@@ -218,6 +213,10 @@ const columns = ref([
     dataIndex: "createTime",
     key: "createTime",
     align: "center",
+  },
+  {
+    title: "操作",
+    dataIndex: "operation",
   },
 ]);
 const onSearch = () => {
