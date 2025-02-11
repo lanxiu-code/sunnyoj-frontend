@@ -58,7 +58,9 @@
         >
           <template #bodyCell="{ column, record }">
             <template v-if="column.key === 'title'">
-              <a-typography-link href="#">
+              <a-typography-link
+                @click="jump(`/problems/${record.questionId}`)"
+              >
                 {{ record.title }}
               </a-typography-link>
             </template>
@@ -88,6 +90,8 @@
 <script setup lang="ts">
 import { reactive, ref } from "vue";
 import { CheckCircleTwoTone } from "@ant-design/icons-vue";
+import { useRouter } from "vue-router";
+const router = useRouter();
 const searchType = ref([
   {
     id: 1,
@@ -199,11 +203,14 @@ const columns = ref([
     key: "passRate",
     align: "center",
     width: 100,
-    fixed: "left",
+    fixed: "right",
   },
 ]);
 const onSearch = () => {
   console.log("submit");
+};
+const jump = (url: string) => {
+  router.push(url);
 };
 </script>
 

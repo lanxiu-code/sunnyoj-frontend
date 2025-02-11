@@ -2,9 +2,7 @@
   <div class="faqsPage">
     <a-row justify="center">
       <a-col :md="12">
-        <a-card class="card">
-          <MdPreview previewTheme="mk-cute" :modelValue="markdownContent" />
-        </a-card>
+        <MdViewer card :modelValue="markdownContent" previewTheme="mk-cute" />
       </a-col>
     </a-row>
   </div>
@@ -12,33 +10,14 @@
 
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
-import { MdPreview, config, XSSPlugin } from "md-editor-v3";
-import "md-editor-v3/lib/preview.css";
+//@ts-ignore
+import MdViewer from "@/components/MdViewer.vue";
 const markdownContent = ref("");
 onMounted(async () => {
-  config({
-    markdownItPlugins(plugins) {
-      return [
-        ...plugins,
-        {
-          type: "xss",
-          plugin: XSSPlugin,
-          options: {},
-        },
-      ];
-    },
-  });
   //@ts-ignore
   const rawMarkdown = await import("@/assets/md/faqs.md?raw");
   markdownContent.value = rawMarkdown.default;
 });
 </script>
 
-<style lang="scss" scoped>
-// @import url("@/assets/style/card.scss");
-.card {
-  -webkit-box-shadow: 0rem 0.9375rem 1.3125rem -0.4375rem rgb(227, 227, 231);
-  -moz-box-shadow: 0rem 0.9375rem 1.3125rem -0.4375rem rgb(227, 227, 231);
-  box-shadow: 0rem 0.9375rem 1.3125rem -0.4375rem rgb(227, 227, 231);
-}
-</style>
+<style lang="scss" scoped></style>

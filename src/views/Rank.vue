@@ -116,7 +116,7 @@ const columns = ref([
     key: "ratio",
     align: "center",
     width: 100,
-    fixed: "left",
+    fixed: "right",
   },
 ]);
 const onSearch = () => {

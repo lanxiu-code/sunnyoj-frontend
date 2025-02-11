@@ -24,7 +24,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { reactive, ref } from "vue";
 import { useRouter } from "vue-router";
 const loginType = ref(0);
@@ -38,7 +38,7 @@ const loginInfo = reactive({
   userEmail: "",
   verifyCode: "",
 });
-const jump = (name) => {
+const jump = (name: string) => {
   router.push({ name });
 };
 const sendCode = () => {

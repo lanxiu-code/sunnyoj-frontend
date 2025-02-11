@@ -114,9 +114,10 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { reactive, ref } from "vue";
 import { useRouter } from "vue-router";
+import { SEND_CODE_INTERVAL } from "../constants/common";
 const loginType = ref(0);
 const codeText = ref("发送");
 const codeBtnDisabled = ref(false);
@@ -128,7 +129,7 @@ const loginInfo = reactive({
   userEmail: "",
   verifyCode: "",
 });
-const jump = (name) => {
+const jump = (name: string) => {
   router.push({ name });
 };
 const sendCode = () => {
@@ -138,7 +139,7 @@ const sendCode = () => {
     return;
   }
   codeBtnDisabled.value = true;
-  let time = 5;
+  let time = SEND_CODE_INTERVAL;
   sid = setInterval(() => {
     codeText.value = `${time--}s`;
     if (time <= 0) {
