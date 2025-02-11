@@ -80,7 +80,6 @@
 <script setup lang="ts">
 import { onMounted, h, ref, reactive } from "vue";
 import { useRoute } from "vue-router";
-import * as monaco from "monaco-editor";
 import { createFromIconfontCN } from "@ant-design/icons-vue";
 import { ICONFONT_URL } from "../constants/common";
 //@ts-ignore

@@ -122,7 +122,7 @@ const loginType = ref(0);
 const codeText = ref("发送");
 const codeBtnDisabled = ref(false);
 const router = useRouter();
-let sid = null;
+let sid: NodeJS.Timeout = null;
 const loginInfo = reactive({
   userAccount: "",
   userPassword: "",
