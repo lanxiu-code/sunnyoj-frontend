@@ -1,7 +1,7 @@
 <template>
   <div class="rankPage">
     <a-row justify="center">
-      <a-col :md="12" class="col">
+      <a-col :lg="16" :md="12" class="col">
         <a-row justify="end">
           <a-col :sm="6">
             <a-input-search

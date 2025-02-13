@@ -117,7 +117,7 @@
 <script setup lang="ts">
 import { reactive, ref } from "vue";
 import { useRouter } from "vue-router";
-import { SEND_CODE_INTERVAL } from "../constants/common";
+import { SEND_CODE_INTERVAL } from "../../constants/common.ts";
 const loginType = ref(0);
 const codeText = ref("发送");
 const codeBtnDisabled = ref(false);

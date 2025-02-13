@@ -13,13 +13,13 @@ export const routes = [
   {
     path: "/sunnyoj",
     name: "Sunnyoj",
-    component: () => import("@/layouts/BasicLayout.vue"),
+    component: () => import("@/layouts/BasicLayout/BasicLayout.vue"),
     children: [
       {
         path: "login",
         name: "Login",
         hideInMenu: true,
-        component: () => import("@/views/Login.vue"),
+        component: () => import("@/views/Login/Login.vue"),
         meta: {
           title: "登录",
           roles: [RoleEnum.UN_LOGIN],
@@ -30,7 +30,7 @@ export const routes = [
         path: "register",
         name: "Register",
         hideInMenu: true,
-        component: () => import("@/views/Register.vue"),
+        component: () => import("@/views/Register/Register.vue"),
         meta: {
           title: "注册",
           roles: [RoleEnum.UN_LOGIN],
@@ -41,7 +41,7 @@ export const routes = [
         path: "viewnews/:id",
         name: "Viewnews",
         hideInMenu: true,
-        component: () => import("@/views/Viewnews.vue"),
+        component: () => import("@/views/Viewnews/Viewnews.vue"),
         meta: {
           title: "公告",
           roles: [RoleEnum.UN_LOGIN],
@@ -51,7 +51,7 @@ export const routes = [
       {
         path: "home",
         name: "Home",
-        component: () => import("@/views/Home.vue"),
+        component: () => import("@/views/Home/Home.vue"),
         meta: {
           title: "首页",
           roles: [RoleEnum.UN_LOGIN],
@@ -61,7 +61,7 @@ export const routes = [
       {
         path: "questionBank",
         name: "QuestionBank",
-        component: () => import("@/views/QuestionBank.vue"),
+        component: () => import("@/views/QuestionBank/QuestionBank.vue"),
         meta: {
           title: "题库",
           roles: [RoleEnum.UN_LOGIN],
@@ -71,7 +71,7 @@ export const routes = [
       {
         path: "contest",
         name: "Contest",
-        component: () => import("@/views/Contest.vue"),
+        component: () => import("@/views/Contest/Contest.vue"),
         meta: {
           title: "比赛",
           roles: [RoleEnum.UN_LOGIN],
@@ -81,7 +81,7 @@ export const routes = [
       {
         path: "status",
         name: "Status",
-        component: () => import("@/views/Status.vue"),
+        component: () => import("@/views/Status/Status.vue"),
         meta: {
           title: "状态",
           roles: [RoleEnum.UN_LOGIN],
@@ -91,7 +91,7 @@ export const routes = [
       {
         path: "rank",
         name: "Rank",
-        component: () => import("@/views/Rank.vue"),
+        component: () => import("@/views/Rank/Rank.vue"),
         meta: {
           title: "排名",
           roles: [RoleEnum.UN_LOGIN],
@@ -101,7 +101,7 @@ export const routes = [
       {
         path: "faqs",
         name: "Faqs",
-        component: () => import("@/views/Faqs.vue"),
+        component: () => import("@/views/Faqs/Faqs.vue"),
         meta: {
           title: "常见问题",
           roles: [RoleEnum.UN_LOGIN],
@@ -114,7 +114,7 @@ export const routes = [
     path: "/problems/:id",
     name: "Problems",
     hideInMenu: true,
-    component: () => import("@/views/Problems.vue"),
+    component: () => import("@/views/Problems/Problems.vue"),
     meta: {
       title: "题目",
       roles: [RoleEnum.UN_LOGIN],

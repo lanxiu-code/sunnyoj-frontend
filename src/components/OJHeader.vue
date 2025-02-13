@@ -40,7 +40,7 @@ const onNavClick = (item: any) => {
   router.push({ name: item.key });
 };
 onMounted(() => {
-  currentNav.value = [route.path];
+  currentNav.value = [route.name as string];
   navItems.value = generateMenu(routes, RoleEnum.UN_LOGIN);
 });
 </script>

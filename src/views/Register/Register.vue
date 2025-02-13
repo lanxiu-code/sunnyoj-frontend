@@ -28,10 +28,7 @@
 import { reactive, ref } from "vue";
 import { useRouter } from "vue-router";
 const loginType = ref(0);
-const codeText = ref("发送");
 const router = useRouter();
-const codeBtnDisabled = ref(false);
-let sid: NodeJS.Timeout = null;
 const loginInfo = reactive({
   userAccount: "",
   userPassword: "",

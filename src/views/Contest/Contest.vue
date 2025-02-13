@@ -1,7 +1,7 @@
 <template>
   <div class="contestPage">
     <a-row justify="center">
-      <a-col :md="12" class="col">
+      <a-col :lg="16" :md="12" class="col">
         <a-space justify="space-between">
           <a-input
             placeholder="比赛编号"
@@ -50,6 +50,14 @@
                 >{{ tag }}</a-tag
               >
             </template>
+            <template v-else-if="column.key === 'type'">
+              <a-tag color="rgb(36 206 27)" v-show="record.type === 1"
+                >公开</a-tag
+              >
+              <a-tag color="rgb(206 18 18)" v-show="record.type === 2"
+                >私有</a-tag
+              >
+            </template>
           </template>
         </a-table>
       </a-col>
@@ -74,14 +82,14 @@ const dataSource = ref([
     id: "1",
     title: "【入门】A+B Problem",
     time: "剩余 19天 18 小时 00 分 55 秒",
-    type: "公开",
+    type: 1,
     createByName: "张三",
   },
   {
     id: "1",
     title: "【入门】A+B Problem",
     time: "已结束2025-01-29 00:00:00",
-    type: "私有",
+    type: 2,
     createByName: "张三",
   },
 ]);

@@ -1,7 +1,7 @@
 <template>
   <div class="statusPage">
     <a-row justify="center">
-      <a-col :md="12" class="col">
+      <a-col :lg="16" :md="12" class="col">
         <a-space justify="space-between">
           <a-input
             placeholder="题目编号"
