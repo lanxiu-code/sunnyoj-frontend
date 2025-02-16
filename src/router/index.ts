@@ -3,7 +3,7 @@ import {
   createWebHistory,
   type RouteRecordRaw,
 } from "vue-router";
-import { RoleEnum } from "../enum/RoleEnum";
+import { RoleEnum } from "@/enum/RoleEnum";
 export const routes = [
   {
     path: "/",

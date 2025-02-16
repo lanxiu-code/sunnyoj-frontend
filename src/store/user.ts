@@ -7,7 +7,7 @@ const userStore = defineStore("user", () => {
     userName: "张三",
     userAvatar:
       "https://img0.baidu.com/it/u=2653686457,2201625642&fm=253&app=138&size=w931&n=0&f=JPEG",
-    userRole: "ban",
+    userRole: "user",
     userEmail: "zhangsan@qq.com",
     userPhone: "12345678901",
     userAddress: "北京",

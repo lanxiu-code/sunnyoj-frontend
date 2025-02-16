@@ -12,8 +12,7 @@
 </template>
 
 <script setup lang="ts">
-//@ts-ignore
-import OJHeader from "../../components/OJHeader.vue";
+import OJHeader from "@/components/OJHeader.vue";
 </script>
 
 <style lang="scss" scoped>

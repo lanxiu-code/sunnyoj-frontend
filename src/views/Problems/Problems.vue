@@ -105,10 +105,8 @@
 import { onMounted, h, ref, reactive } from "vue";
 import { useRoute } from "vue-router";
 import { createFromIconfontCN } from "@ant-design/icons-vue";
-import { ICONFONT_URL } from "../../constants/common.ts";
-//@ts-ignore
+import { ICONFONT_URL } from "@/constants/common.ts";
 import CodeEditor from "@/components/CodeEditor.vue";
-//@ts-ignore
 import OJQuestionDetail from "@/components/OJQuestionDetail.vue";
 const answerType = ref(true);
 const questionTabKeys = ["questionDetail", "submitRecord", "discuss"];

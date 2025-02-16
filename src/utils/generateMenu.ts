@@ -1,5 +1,5 @@
 import { h } from "vue";
-import { ICONFONT_URL } from "../constants/common";
+import { ICONFONT_URL } from "@/constants/common";
 import { createFromIconfontCN } from "@ant-design/icons-vue";
 const IconFont = createFromIconfontCN({
   scriptUrl: ICONFONT_URL,

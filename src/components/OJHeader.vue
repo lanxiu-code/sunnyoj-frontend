@@ -12,6 +12,11 @@
       />
     </a-col>
     <a-col :xs="4" :md="3">
+      <a-avatar :size="{ xs: 24, sm: 32, md: 40, lg: 64, xl: 80, xxl: 100 }">
+        <template #icon>
+          <AntDesignOutlined />
+        </template>
+      </a-avatar>
       <a-space>
         <a-button
           type="primary"
@@ -26,15 +31,18 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
-import generateMenu from "../utils/generateMenu";
-import { RoleEnum } from "../enum/RoleEnum";
-import { routes } from "../router";
+import { computed, onMounted, ref } from "vue";
+import generateMenu from "@/utils/generateMenu";
+import { RoleEnum } from "@/enum/RoleEnum";
+import { routes } from "@/router";
 import { useRoute, useRouter } from "vue-router";
+import { useUserStore } from "@/store";
 const navItems = ref<any[]>([]);
 const currentNav = ref<string[]>(["/home"]);
 const router = useRouter();
 const route = useRoute();
+const userStore = useUserStore();
+const currentUser = computed(() => userStore.currentUser);
 const jump = (name: string) => [router.push({ name })];
 const onNavClick = (item: any) => {
   router.push({ name: item.key });

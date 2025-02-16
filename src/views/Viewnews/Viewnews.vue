@@ -18,7 +18,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
-//@ts-ignore
 import MdViewer from "@/components/MdViewer.vue";
 const route = useRoute();
 const markdownContent = ref("# hello");

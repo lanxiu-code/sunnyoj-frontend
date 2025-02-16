@@ -117,12 +117,12 @@
 <script setup lang="ts">
 import { reactive, ref } from "vue";
 import { useRouter } from "vue-router";
-import { SEND_CODE_INTERVAL } from "../../constants/common.ts";
+import { SEND_CODE_INTERVAL } from "@/constants/common";
 const loginType = ref(0);
 const codeText = ref("发送");
 const codeBtnDisabled = ref(false);
 const router = useRouter();
-let sid: NodeJS.Timeout = null;
+let sid: any = null;
 const loginInfo = reactive({
   userAccount: "",
   userPassword: "",
