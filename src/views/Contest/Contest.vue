@@ -30,7 +30,10 @@
         >
           <template #bodyCell="{ column, record }">
             <template v-if="column.key === 'title'">
-              <a-typography-link href="#">
+              <a-typography-link
+                href="#"
+                @click="jump(`/contest/${record.id}`)"
+              >
                 {{ record.title }}
               </a-typography-link>
             </template>
@@ -67,7 +70,9 @@
 
 <script setup lang="ts">
 import { reactive, ref } from "vue";
+import { useRouter } from "vue-router";
 import { CheckCircleTwoTone } from "@ant-design/icons-vue";
+const router = useRouter();
 const searchParams = reactive({
   title: "",
   id: "",
@@ -129,6 +134,9 @@ const columns = ref([
 ]);
 const onSearch = () => {
   console.log("submit");
+};
+const jump = (url: string) => {
+  router.push(url);
 };
 </script>
 

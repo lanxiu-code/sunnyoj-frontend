@@ -1,5 +1,5 @@
 <template>
-  <a-card :class="{ card: props.card }">
+  <a-card :bordered="false" :class="{ card: props.card }">
     <MdPreview
       :modelValue="props.modelValue"
       :previewTheme="props.previewTheme"

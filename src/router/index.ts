@@ -23,7 +23,6 @@ export const routes = [
         meta: {
           title: "登录",
           roles: [RoleEnum.UN_LOGIN],
-          // icon: "SettingOutlined",
         },
       },
       {
@@ -34,7 +33,6 @@ export const routes = [
         meta: {
           title: "注册",
           roles: [RoleEnum.UN_LOGIN],
-          // icon: "SettingOutlined",
         },
       },
       {
@@ -45,7 +43,6 @@ export const routes = [
         meta: {
           title: "公告",
           roles: [RoleEnum.UN_LOGIN],
-          // icon: "SettingOutlined",
         },
       },
       {
@@ -76,6 +73,16 @@ export const routes = [
           title: "比赛",
           roles: [RoleEnum.UN_LOGIN],
           icon: "icon-bisai",
+        },
+      },
+      {
+        path: "/contest/:id",
+        name: "ContestDetail",
+        component: () => import("@/views/Contest/ContestDetail.vue"),
+        hideInMenu: true,
+        meta: {
+          title: "比赛详情",
+          roles: [RoleEnum.UN_LOGIN],
         },
       },
       {
