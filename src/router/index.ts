@@ -16,6 +16,16 @@ export const routes = [
     component: () => import("@/layouts/BasicLayout/BasicLayout.vue"),
     children: [
       {
+        path: "account",
+        name: "Account",
+        hideInMenu: true,
+        component: () => import("@/views/Account/Account.vue"),
+        meta: {
+          title: "个人信息",
+          roles: [RoleEnum.USER],
+        },
+      },
+      {
         path: "login",
         name: "Login",
         hideInMenu: true,
@@ -51,7 +61,7 @@ export const routes = [
         component: () => import("@/views/Home/Home.vue"),
         meta: {
           title: "首页",
-          roles: [RoleEnum.UN_LOGIN],
+          roles: [RoleEnum.USER],
           icon: "icon-shouye",
         },
       },
@@ -125,7 +135,16 @@ export const routes = [
     meta: {
       title: "题目",
       roles: [RoleEnum.UN_LOGIN],
-      // icon: "SettingOutlined",
+    },
+  },
+  {
+    path: "/forbidden",
+    name: "Forbidden",
+    hideInMenu: true,
+    component: () => import("@/views/403/index.vue"),
+    meta: {
+      title: "禁止访问",
+      roles: [RoleEnum.UN_LOGIN],
     },
   },
 ] as RouteRecordRaw[];
