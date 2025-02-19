@@ -4,7 +4,75 @@ import {
   type RouteRecordRaw,
 } from "vue-router";
 import { RoleEnum } from "@/enum/RoleEnum";
-export const routes = [
+// 通用路由
+export const commonRoutes = [
+  {
+    path: "/forbidden",
+    name: "Forbidden",
+    hideInMenu: true,
+    component: () => import("@/views/403/index.vue"),
+    meta: {
+      title: "禁止访问",
+      roles: [RoleEnum.UN_LOGIN],
+    },
+  },
+];
+// 管理员路由
+export const adminRoutes = [
+  {
+    path: "/sunnyojAdmin",
+    name: "SunnyojAdmin",
+    component: () => import("@/layouts/AdminLayout/AdminLayout.vue"),
+    meta: {
+      title: "管理后台",
+      roles: [RoleEnum.USER],
+    },
+    children: [
+      {
+        path: "notice",
+        name: "AdminNotice",
+        component: () => import("@/views/Admin/Notice/Notice.vue"),
+        meta: {
+          icon: "icon-gonggaoguanli",
+          title: "公告管理",
+          roles: [RoleEnum.USER],
+        },
+      },
+      {
+        path: "user",
+        name: "AdminUser",
+        component: () => import("@/views/Admin/User/User.vue"),
+        meta: {
+          icon: "icon-yonghuguanli",
+          title: "用户管理",
+          roles: [RoleEnum.USER],
+        },
+      },
+      {
+        path: "question",
+        name: "AdminQuestion",
+        component: () => import("@/views/Admin/Question/Question.vue"),
+        meta: {
+          icon: "icon-timuguanli",
+          title: "题目管理",
+          roles: [RoleEnum.USER],
+        },
+      },
+      {
+        path: "contest",
+        name: "AdminContest",
+        component: () => import("@/views/Admin/Contest/Contest.vue"),
+        meta: {
+          icon: "icon-bisaiguanli",
+          title: "比赛管理",
+          roles: [RoleEnum.USER],
+        },
+      },
+    ],
+  },
+];
+// 用户路由
+export const userRoutes = [
   {
     path: "/",
     redirect: "/sunnyoj/home",
@@ -137,19 +205,9 @@ export const routes = [
       roles: [RoleEnum.UN_LOGIN],
     },
   },
-  {
-    path: "/forbidden",
-    name: "Forbidden",
-    hideInMenu: true,
-    component: () => import("@/views/403/index.vue"),
-    meta: {
-      title: "禁止访问",
-      roles: [RoleEnum.UN_LOGIN],
-    },
-  },
 ] as RouteRecordRaw[];
 const router = createRouter({
   history: createWebHistory(),
-  routes,
+  routes: [...userRoutes, ...adminRoutes, ...commonRoutes],
 });
 export default router;

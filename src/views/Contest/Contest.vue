@@ -13,11 +13,7 @@
             v-model:value="searchParams.title"
             style="width: 11.25rem"
           />
-          <a-button
-            type="primary"
-            html-type="submit"
-            class="searchBtn"
-            @click="onSearch"
+          <a-button type="primary" html-type="submit" @click="onSearch"
             >搜索</a-button
           >
           <a-button>重置</a-button>
@@ -147,9 +143,6 @@ const jump = (url: string) => {
     padding: 0.9375rem;
     box-sizing: border-box;
     border-radius: 0.3125rem;
-    .searchBtn {
-      background: #a1c4fd;
-    }
   }
 }
 </style>

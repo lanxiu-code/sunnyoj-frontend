@@ -19,33 +19,19 @@
       </a-col>
     </a-row>
     <a-row justify="center">
-      <a-col :sm="24" :md="18" :lg="13">
+      <a-col :sm="24" :lg="18">
         <a-card class="card" :bordered="false">
-          <a-table
-            :pagination="pagination"
-            :dataSource="dataSource"
-            :columns="columns"
-          >
-            <template #bodyCell="{ column, record }">
-              <template v-if="column.key === 'status'">
-                <CheckCircleTwoTone
-                  v-show="record.status === 1"
-                  style="font-size: 1.25rem"
-                  two-tone-color="#52c41a"
-                />
-              </template>
-              <template v-else-if="column.dataIndex === 'operation'">
-                <a-button
-                  type="primary"
-                  @click="jump(`/problems/${record.questionId}`)"
-                  >开始挑战</a-button
-                >
-              </template>
-            </template>
-          </a-table>
+          <a-tabs v-model:activeKey="currentTabKey">
+            <a-tab-pane key="1" tab="题目列表">
+              <ContestQuestionList />
+            </a-tab-pane>
+            <a-tab-pane key="2" tab="排行榜">
+              <ContestRankList />
+            </a-tab-pane>
+          </a-tabs>
         </a-card>
       </a-col>
-      <a-col :sm="24" :md="18" :lg="5">
+      <!-- <a-col :sm="24" :md="18" :lg="5">
         <a-card class="card" :bordered="false">
           <a-list item-layout="horizontal" :data-source="rankList">
             <template #renderItem="{ item }">
@@ -75,21 +61,16 @@
             </template>
           </a-list>
         </a-card>
-      </a-col>
+      </a-col> -->
     </a-row>
   </div>
 </template>
 
 <script setup lang="ts">
-import { reactive, ref } from "vue";
-import { CheckCircleTwoTone } from "@ant-design/icons-vue";
-import { useRouter } from "vue-router";
-const router = useRouter();
-const pagination = reactive({
-  total: 100,
-  current: 1,
-  pageSize: 10,
-});
+import { ref } from "vue";
+import ContestQuestionList from "./ContestQuestionList.vue";
+import ContestRankList from "./ContestRankList.vue";
+const currentTabKey = ref("1");
 const rankList: any[] = [
   {
     rank: 1,
@@ -116,66 +97,6 @@ const rankList: any[] = [
     score: 60,
   },
 ];
-const dataSource = ref([
-  {
-    questionId: "1",
-    title: "【入门】A+B Problem",
-    score: 10,
-    passRate: "99.9%",
-    status: 1,
-  },
-  {
-    questionId: "2",
-    title: "【入门】A+B Problem",
-    score: 10,
-    passRate: "90.9%",
-    status: 0,
-  },
-]);
-const columns = ref([
-  {
-    title: "状态",
-    dataIndex: "status",
-    key: "status",
-    align: "center",
-    width: 100,
-    fixed: "left",
-  },
-  {
-    title: "题目编号",
-    dataIndex: "questionId",
-    key: "questionId",
-    align: "center",
-  },
-  {
-    title: "标题",
-    dataIndex: "title",
-    key: "title",
-    align: "center",
-  },
-  {
-    title: "分数",
-    dataIndex: "score",
-    key: "score",
-    align: "center",
-  },
-  {
-    title: "通过率",
-    dataIndex: "passRate",
-    key: "passRate",
-    align: "center",
-    width: 100,
-    fixed: "right",
-  },
-  {
-    title: "操作",
-    align: "center",
-    dataIndex: "operation",
-  },
-]);
-const jump = (url: string) => {
-  router.push(url);
-};
 </script>
 
 <style lang="scss" scoped>

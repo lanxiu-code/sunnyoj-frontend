@@ -12,20 +12,39 @@
       />
     </a-col>
     <a-col :xs="4" :md="3">
-      <a-avatar :size="{ xs: 24, sm: 32, md: 40, lg: 64, xl: 80, xxl: 100 }">
-        <template #icon>
-          <AntDesignOutlined />
-        </template>
-      </a-avatar>
-      <a-space>
-        <a-button
-          type="primary"
-          style="background: #a1c4fd"
-          @click="jump('Login')"
-          >登录</a-button
-        >
-        <a-button @click="jump('Register')">注册</a-button>
-      </a-space>
+      <a-flex justify="end" align="center" style="height: 100%">
+        <a-dropdown placement="bottom">
+          <a-avatar
+            v-show="currentUser.id"
+            :src="currentUser.userAvatar"
+            :size="{ sm: 10, md: 20, lg: 30, xl: 40, xxl: 50 }"
+            alt="用户头像"
+          />
+          <template #overlay>
+            <a-menu>
+              <a-menu-item>
+                <a href="javascript:;">个人信息</a>
+              </a-menu-item>
+              <a-menu-item>
+                <a @click="jump('SunnyojAdmin')">管理后台</a>
+              </a-menu-item>
+              <a-menu-item>
+                <a href="javascript:;">退出登录</a>
+              </a-menu-item>
+            </a-menu>
+          </template>
+        </a-dropdown>
+
+        <a-space v-show="!currentUser.id">
+          <a-button
+            type="primary"
+            style="background: #a1c4fd"
+            @click="jump('Login')"
+            >登录</a-button
+          >
+          <a-button @click="jump('Register')">注册</a-button>
+        </a-space>
+      </a-flex>
     </a-col>
   </a-row>
 </template>
@@ -34,7 +53,7 @@
 import { computed, onMounted, ref } from "vue";
 import generateMenu from "@/utils/generateMenu";
 import { RoleEnum } from "@/enum/RoleEnum";
-import { routes } from "@/router";
+import { userRoutes } from "@/router";
 import { useRoute, useRouter } from "vue-router";
 import { useUserStore } from "@/store";
 const navItems = ref<any[]>([]);
@@ -43,13 +62,17 @@ const router = useRouter();
 const route = useRoute();
 const userStore = useUserStore();
 const currentUser = computed(() => userStore.currentUser);
-const jump = (name: string) => [router.push({ name })];
+const jump = (name: string) => {
+  console.log(name);
+
+  router.push({ name });
+};
 const onNavClick = (item: any) => {
   router.push({ name: item.key });
 };
 onMounted(() => {
   currentNav.value = [route.name as string];
-  navItems.value = generateMenu(routes, RoleEnum.UN_LOGIN);
+  navItems.value = generateMenu(userRoutes, RoleEnum.UN_LOGIN);
 });
 </script>
 

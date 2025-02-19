@@ -25,3 +25,10 @@ export enum RoleEnum {
    */
   UN_LOGIN = "un_login",
 }
+
+export const RoleMap = new Map([
+  [RoleEnum.ADMIN, "管理员"],
+  [RoleEnum.USER, "普通用户"],
+  [RoleEnum.VIP, "VIP用户"],
+  [RoleEnum.BAN, "封禁用户"],
+]);
